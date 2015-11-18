@@ -1,0 +1,123 @@
+import ddf.minim.*;
+
+Minim minim;
+AudioInput in;
+PImage bg;
+PImage img; 
+PImage oran;
+PImage dino;
+PImage demon;
+
+float counter;
+float angle;
+float ellipseX=270;
+float ellipseY=500;
+float ellipseA=50;
+float ellipseB=50;
+void setup()
+{ 
+  counter=0.0;
+  size(1024, 576, P3D);
+  noStroke();
+  fill(255);
+  bg = loadImage("sky1-02.png");
+  img = loadImage("planet-03.png");
+  oran =loadImage("characters-3-01.png");
+  dino =loadImage("characters-3-02.png");
+  demon =loadImage("characters-3-03.png");
+  imageMode(CENTER);
+
+  minim = new Minim(this);
+
+  in = minim.getLineIn();
+
+
+  textFont(createFont("Arial", 12));
+}
+
+void draw()
+{
+  
+  //background(bg); 
+  image(bg, width/2, height/2);
+  noStroke();
+  fill(0,10);
+  rect(0,0,width, height);
+  
+  fill(255);
+  ellipse(random(width), random(height),6,6);
+  
+  
+  counter-=.010;
+  fill(237, 207, 124);
+
+  float volumeL = in.left.level();
+  float volumeR = in.right.level();
+  float volume = volumeL + volumeR/2; // Average left and right channel
+  float x1 = map(volume, 0, 1, 0, 100);
+  float y1 = map(volume, 0, 50, 0, 50);
+  if (x1 >= 15 && x1 < 40) {
+    ellipseX+=10;
+    ellipseY-=10;
+    //ellipseY+=270; // Circle moves forward
+ } else if ( x1>=40 && x1<60) {
+    ellipseX-=10; // Circle moves backward
+  } else if (x1 >= 60 && x1<80) {
+    ellipseX+=10;
+    ellipseY-=10; // Circle moves up(45 degree)
+  } else if (x1>=70 && x1<85) {
+    ellipseA+=5;
+    ellipseB+=5;// Circle inflates
+  } else if (x1>=85 && ellipseA > 50) {
+    ellipseA-=5;
+    ellipseB-=5;// Circle deflates
+  }
+     //boundries for the object not to move outside the screen size 
+  if (ellipseX > width - (ellipseA/2)) {
+    ellipseX = width - (ellipseA/2);
+  } else if (ellipseX < ellipseA/2) {
+    ellipseX = ellipseA/2;
+  }
+
+  if (ellipseY < ellipseB/2) {
+    ellipseY = ellipseB/2;
+  }
+  
+  pushMatrix();
+  translate(width/2, height+200);
+  
+  rotate(counter);
+
+  image(img, 0, 0, 900, 900); // Planet
+  popMatrix();
+
+  //float eX = (375 * cos(radians(ellipseX)) + width/2);//217 - 323
+  //float eY = (375 * sin(radians(ellipseX)) + height+200);
+  
+  float pixelX = (375 * cos(radians(273)) + width/2);
+  float pixelY = (375 * sin(radians(273)) + height+200);
+  
+  color c = get(int(pixelX), int(pixelY));
+  println("color: " + c);
+  
+  
+  
+  fill(237, 207, 124);
+  
+ // object changes the color when it hits the obstacle
+ if(c == -12103344) {
+   //hit object
+   fill(255, 0,0);
+   
+ }
+ //ellipse (eX, eY, ellipseA, ellipseB);
+ //image(oran, 500, 385, 100, 100);
+ //image(dino, 500, 385, 100,100);
+ image(demon, 500, 385, 100, 100);
+ 
+  //ellipse(47,136,164, -map(volume, 0, 1, 0, height)); // draw the ellipse from bottom up
+  //println(x1); // Display va;ues from 0 to 100
+  
+  
+  
+}
