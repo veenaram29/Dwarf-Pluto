@@ -1,9 +1,9 @@
 # Dwarf-Pluto
 Speech Recognition Game -Allen, Dafnee &amp; Veena
 
-#Objective : To design a game through voice control
+Objective : To design a game through voice control
 
-#Game Play : The game will consist of one mode-single player. Our character is 
+Game Play : The game will consist of one mode-single player. Our character is 
 designed to float in space, once the user speaks into a microphone, 
 according to the pitch of their voice, the character will move in 
 the space and expand in size. The goal of this game is to engaged 
@@ -11,13 +11,13 @@ the user with the game by constantly talking and interacting
 with the character, as the game reacts to a different way of being 
 controlled, by voice rather than physical controls.
 
-#Game Requirements:
+Game Requirements:
 
-#User Commands:
+User Commands:
  Adjust the character on the screen by your pitch of the user voice
  Use words such as Demo,Pause,Play,Back,Jump and Inflate to navigate in the game.
 
-#Software Requirement
+Software Requirement
  #Processing 2.21 version
   Link to download - https://processing.org/download/?processing 
   Choose version - 2.2.1 (19 May 2014) Win 32/ Win 64 /Linux 32/ Linux 64/ Mac OS X 
