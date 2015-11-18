@@ -1,0 +1,31 @@
+# Sample code for rotating planet
+
+float counter;
+float angle;
+float jitter;
+PImage img;
+
+void setup() {
+  counter=0.0;
+  size(1064, 576);
+  noStroke();
+  fill(255);
+  
+  img = loadImage("whole planet-01.png");
+  imageMode(CENTER);
+}
+
+void draw() {
+    counter+=.004;
+   //image(img, width/2 - img.width/2, height - img.height/4);
+ 
+  background(255);
+  //float c = cos(angle);
+  
+  //rotate(millis() * 0.001 * TWO_PI / 10.0);
+  
+  translate(width/2, height+200);
+  rotate(counter);
+  
+  image(img,0,0);
+  }
