@@ -34,5 +34,7 @@ controlled, by voice rather than physical controls.
   Mac OSX system
   Screen resolution of the game : 1024*576
   
+  #Click on issues to view the images for the game file.
+  
   
   
