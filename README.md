@@ -29,10 +29,10 @@ controlled, by voice rather than physical controls.
   Click download - To download the software
   Get your API KEY by following the instructions in the website
   
- ######Finite state Machine
+######Finite state Machine
  ![finite state machine - new page1](https://cloud.githubusercontent.com/assets/13222494/11230525/5b7ab290-8d54-11e5-83b4-eed2e1a8b881.jpeg)
  
- ######System Requirements
+######System Requirements
   Mac OSX system
   Screen resolution of the game : 1024*576
   
